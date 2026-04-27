@@ -1,0 +1,99 @@
+{
+  "users": {
+    "standard": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    "invalid": {
+      "username": "invalid_user",
+      "password": "invalid_pass"
+    },
+    "lockedOut": {
+      "username": "locked_out_user",
+      "password": "secret_sauce"
+    },
+    "sqlInjection": [
+      {
+        "username": "' OR '1'='1",
+        "password": "' OR '1'='1"
+      },
+      {
+        "username": "admin' --",
+        "password": "admin' --"
+      },
+      {
+        "username": "' OR 1=1 --",
+        "password": "' OR 1=1 --"
+      },
+      {
+        "username": "\" OR \"\"=\"",
+        "password": "\" OR \"\"=\""
+      },
+      {
+        "username": "' UNION SELECT NULL --",
+        "password": "' UNION SELECT NULL --"
+      }
+    ]
+  },
+  "checkout": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "postalCode": "12345",
+    "completeMessage": "Thank you for your order!",
+    "errors": {
+      "missingFirstName": "Error: First Name is required",
+      "missingLastName": "Error: Last Name is required",
+      "missingPostalCode": "Error: Postal Code is required"
+    }
+  },
+  "errorMessages": {
+    "invalidCredentials": "Username and password do not match any user in this service",
+    "usernameRequired": "Username is required",
+    "passwordRequired": "Password is required",
+    "lockedOut": "Sorry, this user has been locked out."
+  },
+  "loginErrorScenarios": [
+    {
+      "name": "invalid credentials",
+      "username": "invalid_user",
+      "password": "invalid_pass",
+      "expectedError": "Username and password do not match any user in this service"
+    },
+    {
+      "name": "missing credentials",
+      "username": "",
+      "password": "",
+      "expectedError": "Username is required"
+    },
+    {
+      "name": "standard username with incorrect password",
+      "username": "standard_user",
+      "password": "wrong_password",
+      "expectedError": "Username and password do not match any user in this service"
+    },
+    {
+      "name": "standard username with blank password",
+      "username": "standard_user",
+      "password": "",
+      "expectedError": "Password is required"
+    },
+    {
+      "name": "standard password with blank username",
+      "username": "",
+      "password": "secret_sauce",
+      "expectedError": "Username is required"
+    },
+    {
+      "name": "invalid username with standard password",
+      "username": "invalid_user",
+      "password": "secret_sauce",
+      "expectedError": "Username and password do not match any user in this service"
+    },
+    {
+      "name": "locked out user",
+      "username": "locked_out_user",
+      "password": "secret_sauce",
+      "expectedError": "Sorry, this user has been locked out."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "saucedemo-tests",
+  "version": "1.0.0",
+  "description": "Test automation suite for SauceDemo",
+  "scripts": {
+    "test": "playwright test",
+    "test:navigation": "playwright test tests/Navigation",
+    "test:dev": "set TEST_ENV=dev&& playwright test",
+    "test:staging": "set TEST_ENV=staging&& playwright test",
+    "test:prod": "set TEST_ENV=prod&& playwright test",
+    "test:headed": "playwright test --headed",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:performance": "playwright test tests/Performance --grep @performance",
+    "test:visual": "playwright test tests/Visual --grep @visual",
+    "test:mobile": "playwright test --project=\"Pixel 5\" --project=\"iPhone 14\" tests/Mobile --grep @mobile",
+    "test:a11y": "playwright test tests/Accessibility --reporter=list"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.2",
+    "@playwright/test": "^1.40.0"
+  }
+}
