@@ -12,7 +12,8 @@ if (!envConfig) {
 }
 
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: './',
+  testMatch: ['**/tests/**/*.spec.js', '**/api/**/*.spec.js'],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   outputDir: 'test-results/artifacts',

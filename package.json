@@ -14,7 +14,8 @@
     "test:performance": "playwright test tests/Performance --grep @performance",
     "test:visual": "playwright test tests/Visual --grep @visual",
     "test:mobile": "playwright test --project=\"Pixel 5\" --project=\"iPhone 14\" tests/Mobile --grep @mobile",
-    "test:a11y": "playwright test tests/Accessibility --reporter=list"
+    "test:a11y": "playwright test tests/Accessibility --reporter=list",
+    "test:api": "playwright test api --project=chromium"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.2",
